@@ -1,1 +1,1 @@
-puts "This is the Users View bitch!"
+puts "This is the Users View!"
