@@ -3,7 +3,11 @@ class ApplicationModel
 
   # Find =======================================================================
   def self.find(id)
-    self.new(id: id) # Record gets found by ID
+    if id == 0
+      return false
+    else
+      self.new(id: id) # Record gets found by ID
+    end
   end
 
   # Create =====================================================================
@@ -76,7 +80,7 @@ class ApplicationModel
 
   # Update =====================================================================
   def update(options = {  })
-    if id.nil?
+    if id.nil? || id  == 0
       puts "#{@model.capitalize} doesnt exist."
       return
     else

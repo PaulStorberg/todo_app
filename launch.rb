@@ -23,11 +23,10 @@ end
 # puts "Please enter your password."
 # password = gets.chomp.downcase
 
+# @user = User.find(0)
+# @user.update(username: "Testy")
 
-# @user = User.find(2)
-# @user.update(username: "Paul")
-
-@user = User.create(username: "username", password: "password")
+# @user = User.create(username: "username", password: "password")
 
 # @user = User.find(4)
 # @user.destroy
