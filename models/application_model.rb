@@ -1,10 +1,12 @@
 class ApplicationModel
   attr_reader :attributes, :id, :model
 
+  # Find =======================================================================
   def self.find(id)
     self.new(id: id) # Record gets found by ID
   end
 
+  # Create =====================================================================
   def self.create(options = {  })
     return self unless options[:id].nil? # If ID present returns self
     new_object = self.new(options)
@@ -12,6 +14,8 @@ class ApplicationModel
   end
 
   # ============================================================================
+
+  # All ========================================================================
   def self.all
     models_array = []
     @db_model = self.to_s.downcase
@@ -23,6 +27,7 @@ class ApplicationModel
     end
   end
 
+  # Sort Database ==============================================================
   def self.sort_database
     rows = []
     model_array = []
@@ -40,6 +45,7 @@ class ApplicationModel
     end
   end
 
+  # Return Attributes Hash =====================================================
   def return_attributes_hash
     attributes_hash = {  }
     attributes.map  do |attribute| #Creates a hash of Record attributes
@@ -48,6 +54,7 @@ class ApplicationModel
     attributes_hash
   end
 
+  # Destroy ====================================================================
   def destroy
     attributes_hash = self.return_attributes_hash
     attributes_hash["id"] = 0
@@ -67,6 +74,7 @@ class ApplicationModel
     self.class.sort_database
   end
 
+  # Update =====================================================================
   def update(options = {  })
     if id.nil?
       puts "#{@model.capitalize} doesnt exist."
@@ -79,6 +87,7 @@ class ApplicationModel
     end
   end
 
+  # Initialize =================================================================
   def initialize(options = {  })
     @model      = "#{self.class.to_s.downcase}"
     @attributes = CSV.read("database/#{@model}s.csv", headers: true).headers
@@ -87,6 +96,7 @@ class ApplicationModel
       @attributes.each do |attribute|
         instance_variable_set("@#{attribute}", options[attribute.to_sym])
       end
+
     else # Finds instance variables if ID present
       csv = CSV.read("database/#{@model}s.csv", headers: true)
       row = csv.find {|row| row['id'] == options[:id].to_s }.to_h
@@ -97,6 +107,7 @@ class ApplicationModel
     end
   end
 
+  # Save =======================================================================
   def save
     attributes_hash = self.return_attributes_hash
 
