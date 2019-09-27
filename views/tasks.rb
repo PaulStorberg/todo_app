@@ -1,1 +1,2 @@
-puts "This is the Tasks view!"
+class TasksView
+end
