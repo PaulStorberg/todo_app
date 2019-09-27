@@ -18,15 +18,24 @@ object_array.each do |view|
   require_relative "views/#{view}s.rb"
 end
 
-# puts "Please enter your username."
-# username = gets.chomp
-# puts "Please enter your password."
-# password = gets.chomp.downcase
+# ==============================================================================
+# puts "Hello! Please sign in(1), sign up(2) or exit(3)"
+#
+# answer = gets.chomp.downcase.to_i
+#
+# while true
+#   if answer == 1
+#     UsersController.new_session
+#     break
+#   elsif answer == 2
+#     UsersController.sign_up
+#     break
+#   elsif answer == 3
+#     break
+#   else
+#     puts "Please type an integer."
+#     answer = gets.chomp.downcase.to_i
+#   end
+# end
 
-# @user = User.find(0)
-# @user.update(username: "Testy")
-
-# @user = User.create(username: "username", password: "password")
-
-# @user = User.find(4)
-# @user.destroy
+# ==============================================================================

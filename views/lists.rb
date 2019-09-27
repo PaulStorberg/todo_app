@@ -1,1 +1,2 @@
-puts "This is the lists view!"
+class ListsView
+end
