@@ -39,12 +39,3 @@ while true
 end
 
 # ==============================================================================
-# UsersView.sign_up
-# User.all
-# @user = User.find(0)
-# @user.update(username: "Testy")
-
-# @user = User.create(username: "username", password: "password")
-
-# @user = User.find(4)
-# @user.destroy

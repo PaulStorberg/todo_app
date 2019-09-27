@@ -10,20 +10,12 @@ class ApplicationModel
     end
   end
 
-  def self.find_by(options = {  })
-
-  end
-
   # Create =====================================================================
   def self.create(options = {  })
     return self unless options[:id].nil? # If ID present returns self
     new_object = self.new(options)
     new_object.save # Record gets created and saved
   end
-
-  # def self.find_by(options = {  })
-  #
-  # end
 
   # ============================================================================
 
@@ -35,7 +27,7 @@ class ApplicationModel
       models_array = models_array.push(self.find(row[0]))
     end
     models_array.each do |model_instant|
-    p  model_instant
+      model_instant
     end
   end
 
